@@ -22,6 +22,7 @@
         width: 100%;
         text-align: center;
         background: #537791;
+        display: flex;
     }
 
     ul li {
@@ -35,6 +36,12 @@
         color: #fff;
         font-weight: bold;
         padding: 0 40px;
+    }
+
+    .jikan {
+        width: 150px;
+        color: #fff;
+        padding-top: 25px;
     }
     /* メイン */
     .main {
