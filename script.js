@@ -1,20 +1,16 @@
-const modalWrapper = document.querySelector('.modal-wrapper');
-const images = document.querySelectorAll('.image');
-const modalImage = document.querySelector('.modal-image');
-
-images.forEach(function (image) {
-  image.addEventListener('click', function(){
-      modalWrapper.classList.add('show');
-      modalImage.classList.add('show');
-
-      var imageSrc = image.getAttribute('data-src');
-      modalImage.src = imageSrc;
-    });
+window.addEventListener('load', function () {
+  viewSlide('.slide img');
 });
-
-modalWrapper.addEventListener('click', function(){
-  if (this.classList.contains('show')) {
-        this.classList.remove('show');
-        modalImage.classList.remove('show');
+function viewSlide(className, slideNo = -1) {
+  let imgArray = document.querySelectorAll(className);
+  if (slideNo >= 0) {
+    imgArray[slideNo].style.opacity = 0;
   }
-});
+  slideNo++;
+  if (slideNo >= imgArray.length) {
+    slideNo = 0;
+  }
+  imgArray[slideNo].style.opacity = 1;
+  let msec = document.getElementById('slide_speed').value;
+  setTimeout(function () { viewSlide(className, slideNo); }, msec);
+}
